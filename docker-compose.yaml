@@ -1,0 +1,21 @@
+cat docker-compose.yaml 
+version: '3.3'
+services:
+  db:
+    image: mysql
+    ports:
+      - "3344:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: q123
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: q12345678
+  web:
+    image: wordpress
+    ports:
+      - "4444:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: q12345678
+      WORDPRESS_DB_NAME: wordpress
